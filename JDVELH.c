@@ -24,7 +24,7 @@ struct Lieux{
 };
 typedef struct Lieux lieux;
 
-lieux chapitre1 = {"L'entree de la tour. Une grosse porte en bois qui garde une demeure de pierre.", 50, 20, "Vous pouvez entrer [5] ou bien faire le tour [4]"};
+lieux chapitre1 = {"L'entree de la tour. Une grosse porte en bois qui garde une demeure de pierre.", 50, 20, "Vous pouvez entrer [5] ou bien faire le tour [4] ou aller au magasin [6]"};
 lieux chapitre2 = {"L'arriere de la tour. Un endroit qui aurait pu servir de beau jardin, mais qui a ete laisse a l'abandon. Parmis les plantes, vous percevez une petit porte en fer qui peux vous permettre d'entrer dans la tour.",40, 20, "vous pouvez retourner à la porte principale [3] ou bien entrer [5]"};
 lieux chapitre3 = {"Le hall d'entree de la tour. Malgre les meubles en bon etat, l'accumulation de poussiere donne l'impression que le lieu est abandonne.",0, 0, "Vous pouvez sortir par la porte principale [3] et par la porte arriere [4]"};
 lieux chapitre4 = {"Un magasin cache dans les feuillages." ,16, 10, "Vous pouvez vous rendre à la tour en [3]"};
@@ -229,6 +229,7 @@ int main()
 		  printf("=== Vos statistiques ===\n");
 		  printf("Experience = %d\n", xp);
 		  printf("Points de vie = %d\n", vie);
+		  printf("Argent = %d\n", argentJoueur);
 		  printf("Defense = %d\n", defense);
 		  printf("Attaque = %d\n", attaque);
 	  }
