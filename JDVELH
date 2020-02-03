@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char prenom[100];
+
+    int choix ;
+	int vie = 100;
+	
+	 while (vie > 0){
+
+    printf("Héros, veuillez désigner votre nom. ");
+    scanf("%s", prenom);
+    printf("Bienvenue %s, et merci de nous venir en aide ! \n Il y a peu, une fille du village a disparu. Nous soupçonnons le sorcier de la tour voisine d'être à l'origine de son enlèvement. \n Pouvez-vous aller la sauver ? \n [1] Oui  [2] Non", prenom);
+	scanf("%d", &choix)
+	
+	if (choix == 2){
+		
+	printf("Stp");
+	
+	}
+	
+	if (choix == 1){
+		printf("Merci %s", prenom);
+    printf("Tu as %d vie\n", vie);
+
+    printf("Ou veux-tu te rendre ? \n [3] Foret \n [4] Chateau");
+    scanf("%d", &choix);
+
+    if (choix == 3){
+    	printf("Vous vous avancez dans la sombre foret.");
+	}
+
+	if (choix == 4){
+		printf("Vous gagnez le chateau, determiné ");
+	}
+
+		}
+
+		if (vie <= 0){
+			printf("vous etes mort \n");
+		}
+					}
+
+
+
+
+
+    return 0;
+}
