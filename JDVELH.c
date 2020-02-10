@@ -29,6 +29,13 @@ lieux chapitre2 = {"L'arriere de la tour. Un endroit qui aurait pu servir de bea
 lieux chapitre3 = {"Le hall d'entree de la tour. Malgre les meubles en bon etat, l'accumulation de poussiere donne l'impression que le lieu est abandonne.",0, 0, "Vous pouvez sortir par la porte principale [3] et par la porte arriere [4]"};
 lieux chapitre4 = {"Un magasin cache dans les feuillages." ,16, 10, "Vous pouvez vous rendre à la tour en [3]"};
 
+int combat(int apparition){
+	if (apparition == 4)
+	{
+		printf("Un monstre apparait.\n");
+	}
+}
+
 int main()
 {
 	// Choix du joueur
@@ -38,6 +45,12 @@ int main()
 	int choix3 ;
 	int itemachat ;
 	int deplacement = 1;
+	
+	
+	// Taux d'apparition des monstres. A chaque choix, le taux d'apparition augmente de 1, et quand il arrive à 5, le joueur est attaqué avant que ce soit remis à 0
+	
+	int apparition = 0;
+	
 	
 	//info joueur
 	
@@ -89,6 +102,8 @@ int main()
 	
 		switch (choix2){
 					case 3:
+						apparition = apparition + 1;
+						combat(apparition);
 						printf(" %s \n %s\n ", chapitre1.description);
 						printf("Vous pouvez \n [1] Fouiller l'endroit \n[2] partir");
 						scanf ("%d",&choix3);
@@ -108,6 +123,8 @@ int main()
 						break;
 		
 					case 4:
+						apparition = apparition + 1;
+						combat(apparition);
 						printf(" %s \n %s \n", chapitre2.description);
 						printf("Vous pouvez \n [1] Fouiller l'endroit \n[2] partir");
 						scanf ("%d",&choix3);
@@ -127,6 +144,8 @@ int main()
 						break;
 		
 					case 5:
+						apparition = apparition + 1;
+						combat(apparition);
 						printf(" %s \n %s \n", chapitre3.description);
 						printf("Vous pouvez \n [1] Fouiller l'endroit \n[2] partir");
 						scanf ("%d",&choix3);
@@ -146,6 +165,8 @@ int main()
 						break;
 						
 					case 6:
+						apparition = apparition + 1;
+						combat(apparition);
 						printf(" %s \n %s ", chapitre4.description);
 						printf("Salut %s, que veux-tu aujourd'hui ?", prenom);
   
@@ -234,6 +255,10 @@ int main()
 		  printf("Attaque = %d\n", attaque);
 	  }
 	}				
+				if (apparition == 4){
+			printf("Un ennemi apparait !");
+			apparition = 0;
+		}
 		}
 	}
 					
