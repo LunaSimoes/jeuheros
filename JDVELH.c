@@ -24,15 +24,15 @@ struct Lieux{
 };
 typedef struct Lieux lieux;
 
-lieux chapitre1 = {"L'entree de la tour. Une grosse porte en bois qui garde une demeure de pierre.", 50, 20, "Vous pouvez entrer [5] ou bien faire le tour [4] ou aller au magasin [6]"};
-lieux chapitre2 = {"L'arriere de la tour. Un endroit qui aurait pu servir de beau jardin, mais qui a ete laisse a l'abandon. Parmis les plantes, vous percevez une petit porte en fer qui peux vous permettre d'entrer dans la tour.",40, 20, "vous pouvez retourner à la porte principale [3] ou bien entrer [5]"};
-lieux chapitre3 = {"Le hall d'entree de la tour. Malgre les meubles en bon etat, l'accumulation de poussiere donne l'impression que le lieu est abandonne.",0, 0, "Vous pouvez sortir par la porte principale [3] et par la porte arriere [4]"};
-lieux chapitre4 = {"Un magasin cache dans les feuillages." ,16, 10, "Vous pouvez vous rendre à la tour en [3]"};
+lieux chapitre1 = {"\nL'entree de la tour. Une grosse porte en bois qui garde une demeure de pierre.", 50, 20, "Vous pouvez entrer [5] ou bien faire le tour [4] ou aller au magasin [6]"};
+lieux chapitre2 = {"\nL'arriere de la tour. Un endroit qui aurait pu servir de beau jardin, mais qui a ete laisse a l'abandon. Parmis les plantes, vous percevez une petit porte en fer qui peux vous permettre d'entrer dans la tour.",40, 20, "vous pouvez retourner à la porte principale [3] ou bien entrer [5]"};
+lieux chapitre3 = {"\nLe hall d'entree de la tour. Malgre les meubles en bon etat, l'accumulation de poussiere donne l'impression que le lieu est abandonne.",0, 0, "Vous pouvez sortir par la porte principale [3] et par la porte arriere [4]"};
+lieux chapitre4 = {"\nUn magasin cache dans les feuillages." ,16, 10, "Vous pouvez vous rendre à la tour en [3]"};
 
 int combat(int apparition){
 	if (apparition == 4)
 	{
-		printf("Un monstre apparait.\n");
+		printf("\nUn monstre apparait.\n");
 	}
 }
 
@@ -72,29 +72,29 @@ int main()
 	
 	//Debut du jeu
 
-    printf("Heros, veuillez designer votre nom. \n ");
+    printf("Heros, veuillez designer votre nom.\n ");
     scanf("%s", prenom);
-    printf("Bienvenue %s, et merci de nous venir en aide ! \nIl y a peu, une fille du village a disparu. Nous soupconnons le sorcier de la tour voisine d'etre a l'origine de son enlevement. \n", prenom);
+    printf("\nBienvenue %s, et merci de nous venir en aide ! \nIl y a peu, une fille du village a disparu. Nous soupconnons le sorcier de la tour voisine d'etre a l'origine de son enlevement.\n", prenom);
 	
 	while (vie > 0){
 	
-	printf("Pouvez-vous aller la sauver ? \n [1] Oui \n [2] Non");
-	scanf("%d", &choix2);
+	printf("\nPouvez-vous aller la sauver ? \n [1] Oui \n [2] Non");
+	scanf("\n%d", &choix2);
 	
 	while (choix2 == 2){
 		
-	printf("Stp \n [1] Oui \n [2] Non");
-	scanf("%d", &choix2);
+	printf("\nStp \n[1] Oui \n[2] Non");
+	scanf("\n%d", &choix2);
 	
 	}
 	
 	if (choix2 == 1){
-	printf("Merci %s \n", prenom);
-    printf("Vous avez %d points de vie ! \n", vie);
+	printf("\nMerci %s \n", prenom);
+    printf("\nVous avez %d/HP ! \n", vie);
 
-	printf("vous gagnez la tour du sorcier. Il y a une entree principale, dotee d'une lourde porte en bois massif. Mais peut-etre y a-t-il une autre entree a l'arriere? \n");
-    printf("Que desirez vous faire ? \n [3] Entree principale \n [4] Faire le tour pour trouver une autre entree \n [6] Allez au magasin ?");
-    scanf("%d", &choix2);
+	printf("\nVous gagnez la tour du sorcier. Il y a une entree principale, dotee d'une lourde porte en bois massif. Mais peut-etre y a-t-il une autre entree a l'arriere? \n");
+    printf("\nQue desirez vous faire ? \n[3] Entree principale \n[4] Faire le tour pour trouver une autre entree \n[6] Allez au magasin ?");
+    scanf("\n%d", &choix2);
 	
 	// Se deplacer d'un lieu à un autre
 	
@@ -105,19 +105,19 @@ int main()
 						apparition = apparition + 1;
 						combat(apparition);
 						printf(" %s \n %s\n ", chapitre1.description);
-						printf("Vous pouvez \n [1] Fouiller l'endroit \n[2] partir");
-						scanf ("%d",&choix3);
+						printf("\nVous pouvez \n[1] Fouiller l'endroit \n[2] partir");
+						scanf ("\n%d",&choix3);
 						
 							switch (choix3){
 								case 1:
 								
-								printf("Vous trouvez %d\n", chapitre1.gainargent);
+								printf("\nVous trouvez %d\n", chapitre1.gainargent);
 								argentJoueur = argentJoueur + chapitre1.gainargent;
 								chapitre1.gainargent = 0;
 							
 								case 2 :
 								printf("%s", chapitre1.acces);
-								scanf("%d", &choix2);
+								scanf("\n%d", &choix2);
 								break;
 							}
 						break;
@@ -126,19 +126,19 @@ int main()
 						apparition = apparition + 1;
 						combat(apparition);
 						printf(" %s \n %s \n", chapitre2.description);
-						printf("Vous pouvez \n [1] Fouiller l'endroit \n[2] partir");
-						scanf ("%d",&choix3);
+						printf("\nVous pouvez \n[1]Fouiller l'endroit \n[2] partir");
+						scanf ("\n%d",&choix3);
 						
 							switch (choix3){
 								case 1:
 								
-								printf("Vous trouvez %d\n", chapitre2.gainargent);
+								printf("\nVous trouvez %d\n", chapitre2.gainargent);
 								argentJoueur = argentJoueur + chapitre2.gainargent;
 								chapitre2.gainargent = 0;
 							
 								case 2 :
 								printf("%s", chapitre2.acces);
-								scanf("%d", &choix2);
+								scanf("\n%d", &choix2);
 								break;
 							}
 						break;
@@ -147,19 +147,19 @@ int main()
 						apparition = apparition + 1;
 						combat(apparition);
 						printf(" %s \n %s \n", chapitre3.description);
-						printf("Vous pouvez \n [1] Fouiller l'endroit \n[2] partir");
-						scanf ("%d",&choix3);
+						printf("\nVous pouvez \n[1]Fouiller l'endroit \n[2] partir");
+						scanf ("\n%d",&choix3);
 						
 							switch (choix3){
 								case 1:
 								
-								printf("Vous trouvez %d\n", chapitre3.gainargent);
+								printf("\nVous trouvez %d\n", chapitre3.gainargent);
 								argentJoueur = argentJoueur + chapitre3.gainargent;
 								chapitre3.gainargent = 0;
 							
 								case 2 :
 								printf("%s", chapitre3.acces);
-								scanf("%d", &choix2);
+								scanf("\n%d", &choix2);
 								break;
 							}
 						break;
@@ -168,16 +168,16 @@ int main()
 						apparition = apparition + 1;
 						combat(apparition);
 						printf(" %s \n %s ", chapitre4.description);
-						printf("Salut %s, que veux-tu aujourd'hui ?", prenom);
+						printf("\nVendeur : Salut %s, que veux-tu aujourd'hui ?", prenom);
   
   // Magasin
   
   while (argentJoueur > 0){
-    printf("Veux-tu m'acheter quelque chose ? \n [1] oui \n [2] non \n [3] Voir votre inventaire \n [4] Voir vos statistiques");
-    scanf("%d", &choix);
+    printf("\nVeux-tu m'acheter quelque chose ? \n[1] oui \n[2] non \n[3] Voir votre inventaire \n[4] Voir vos statistiques");
+    scanf("\n%d", &choix);
 	
     if (choix == 1){
-    	printf("Que veux-tu acheter %s ?\n", prenom);
+    	printf("\nQue veux-tu acheter %s ?\n", prenom);
     	printf(" [1] %s | %d | %s \n", epee.nomObjet, epee.prix, epee.caracteristique);
     	printf(" [2] %s | %d | %s \n", bouclier.nomObjet, bouclier.prix, bouclier.caracteristique);
     	printf(" [3] %s | %d | %s \n", potion.nomObjet, potion.prix, potion.caracteristique);
@@ -188,7 +188,7 @@ int main()
 		
 		  switch (itemachat){
 				case 1:
-					printf("Okay Niquel Vla l'epee \n");
+					printf("\nOkay Niquel Vla l'epee \n");
 					argentJoueur = argentJoueur - epee.prix;
 					epee1 = epee1 + 1;
 					attaque = attaque + 10;
@@ -196,7 +196,7 @@ int main()
 				break;
 				
 				case 2:
-					printf("Okay Perfect Vla le bouclier \n");
+					printf("\nOkay Perfect Vla le bouclier \n");
 					argentJoueur = argentJoueur - bouclier.prix;
 					bouclier1 = bouclier1 + 1;
 					defense = defense + 10;
@@ -204,21 +204,21 @@ int main()
 				break;
 
 				case 3:
-					printf("... Eu... ok, voilà la potion \n");
+					printf("\n... Eu... ok, voilà la potion \n");
 					argentJoueur = argentJoueur - potion.prix;
 					potion1 = potion1 + 1;
 					printf("Zyva il te reste %d\n", argentJoueur );
 				break;
 				
 				case 4:
-					printf("Okay zyva la Lance \n");
+					printf("\nOkay zyva la Lance \n");
 					argentJoueur = argentJoueur - lance.prix;
 					lance1 = lance1 + 1;
 					attaque = attaque + 10;
 					printf("Zyva il te reste %d\n", argentJoueur );
 
 				case 5:
-					printf("'Kay vla l'armure, protège toi bien ptit chou \n");
+					printf("\n'Kay vla l'armure, protège toi bien ptit chou \n");
 					argentJoueur = argentJoueur - armure.prix;
 					armure1 = armure1 + 1;
 					defense = defense + 20;
@@ -226,7 +226,7 @@ int main()
 				break;
 
 				case 6:
-					printf("OH OUI PRENDS CETTE HORREUR ! ... hum, je veux dire... Un choix judicieux. \n");
+					printf("\nOH OUI PRENDS CETTE HORREUR ! ... hum, je veux dire... Un choix judicieux. \n");
 					argentJoueur = argentJoueur - peluche.prix;
 					peluche1 = peluche1 + 1;
 					printf("Zyva il te reste %d\n", argentJoueur );
@@ -234,12 +234,12 @@ int main()
 	    }
     }else if (choix == 2){
 		  printf("%s", chapitre4.acces);
-		  scanf("%d", &choix2);
+		  scanf("\n%d", &choix2);
 		break;
 		
 	  }else if (choix == 3){
 	
-		printf("Vous possédez \n %d %s \n", epee1, epee.nomObjet);
+		printf("\nVous possédez \n %d %s \n", epee1, epee.nomObjet);
 		printf("\n %d %s \n", bouclier1, bouclier.nomObjet);
     	printf("\n %d %s \n", potion1, potion.nomObjet);
     	printf("\n %d %s \n", lance1, lance.nomObjet);
@@ -255,10 +255,6 @@ int main()
 		  printf("Attaque = %d\n", attaque);
 	  }
 	}				
-				if (apparition == 4){
-			printf("Un ennemi apparait !");
-			apparition = 0;
-		}
 		}
 	}
 					
