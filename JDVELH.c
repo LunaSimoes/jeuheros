@@ -58,7 +58,7 @@ lieux chapitre4 = {"\nUn magasin cache dans les feuillages." ,16, 10, "Vous pouv
 
 	//info joueur
 
-    char prenom[100];
+  char prenom[100];
 	int vie = 100;
 	int xp = 0;
 	int argentJoueur = 10;
@@ -97,12 +97,15 @@ int attaquedumonstre(int battle){
 int combat(int apparition){
 	if (apparition == 4)
 	{
-		printf("\n[Un monstre apparait !]\nUn combat s'engage !");
+		printf("\n \nUN MONSTRE APPARAIT !\nUn combat s'engage !");
+
+		while (viemonstre > 0, vie > 0){
+
 		printf("\nQue faites-vous ?!");
 		printf("\n[1] Attaquer \n[2] Défendre \n[3] Voir votre inventaire \n[4]Statistiques");
 		scanf("\n%d", &choixCombat);
 
-		while (viemonstre > 0){
+
 
 		switch (choixCombat){
 					case 1:
@@ -118,8 +121,42 @@ int combat(int apparition){
 						choixCombat= 0;
 						break;
 
+					case 3:
+					printf("\n=== Inventaire ===\n");
+					printf("\nVous possédez \n %d %s \n", epee1, epee.nomObjet);
+					printf("\n %d %s \n", bouclier1, bouclier.nomObjet);
+			    printf("\n %d %s \n", potion1, potion.nomObjet);
+			   	printf("\n %d %s \n", lance1, lance.nomObjet);
+			   	printf("\n %d %s \n", armure1, armure.nomObjet);
+			   	printf("\n %d %s \n", peluche1, peluche.nomObjet);
+					break;
+
+					case 4:
+
+				 	printf("\n=== Vos statistiques ===\n");
+				  printf("Experience = %d\n", xp);
+				  printf("Points de vie = %d\n", vie);
+				  printf("Argent = %d\n", argentJoueur);
+				  printf("Defense = %d\n", defense);
+				  printf("Attaque = %d\n", attaque);
+				  break;
+
 	}
 }
+
+if (vie <= 0){
+	printf("vous etes mort \n");
+	return 0;
+}
+
+	if (viemonstre <= 0){
+		argentmonstre = rand() % 15;
+		xpmonstre = rand() % 15;
+		printf("\n Le monstre n'a plus de HP ! Vous remportez %d xp ainsi que %dpieces d'ors !\n",xpmonstre,argentmonstre);
+		argentJoueur = argentJoueur + argentmonstre;
+		xp = xp + xpmonstre;
+}
+
 	}
 }
 
@@ -315,20 +352,8 @@ int main(){
 	}
 
 
-		if (vie <= 0){
-			printf("vous etes mort \n");
-		}
-
 		if (argentJoueur <= 0){
 		printf("T'as plus d'argent fdp \n *Vous etes jete dehors* \n");
-	}
-
-		if (viemonstre <= 0){
-			argentmonstre = rand() % 15;
-			xpmonstre = rand() % 15;
-			printf("\n Le monstre n'a plus de HP ! Vous remportez %d xp ainsi que %dpieces d'ors !\n",xpmonstre,argentmonstre);
-			argentJoueur = argentJoueur + argentmonstre;
-			xp = xp + xpmonstre;
 	}
 					}
 
