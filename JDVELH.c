@@ -147,8 +147,9 @@ int combat(int apparition){
 }
 
 if (vie <= 0){
-	printf("vous etes mort \n");
-	return 0;
+	printf("\n Vous etes mort !");
+	printf("\n == GAME OVER == \n");
+	if (vie <= 0) exit(1);
 }
 
 	if (viemonstre <= 0){
@@ -350,8 +351,27 @@ int main(){
 		  printf("Attaque = %d\n", attaque);
 	  }
 	}
+			case 7:
+				apparition = apparition + 1;
+				combat(apparition);
+				printf(" %s \n %s \n", chapitre5.description);
+				printf("\nVous pouvez \n[1]Fouiller l'endroit \n[2] partir");
+				scanf ("\n%d",&choix3);
+
+				switch (choix3){
+					case 1:
+
+					printf("\nVous trouvez %d\n", chapitre5.gainargent);
+					argentJoueur = argentJoueur + chapitre5.gainargent;
+					chapitre5.gainargent = 0;
+
+					case 2 :
+					printf("%s", chapitre5.acces);
+					scanf("\n%d", &choix2);
+					break;
+				}
+			break;}
 		}
-	}
 
 
 		if (argentJoueur <= 0){
